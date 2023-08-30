@@ -1,0 +1,129 @@
+
+/*----------------------*/
+/* Estilos para el formulario de registro */
+.contenedor {
+    background-image: url('../../assets/header-img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 25rem;
+    height: auto;
+}
+
+.login__titulo {
+    margin-bottom: 20px;
+    font-size: 1.08rem;
+    color: #333;
+    position: relative;
+}
+
+.login__titulo::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.3rem;
+    background-color: #8B0000;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.login__datos {
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.login__datos--label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login__datos--input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+}
+
+.login__boton {
+    margin-top: 1rem;
+    background-color: #8B0000;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.login__boton:hover {
+    background-color: #600000;
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.opciones .rememberopciones__recuerdame,
+.opciones .opiones__restablecer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.8rem;
+}
+
+.opiones__restablecer {
+    margin-left: 0.5rem;
+}
+
+.opciones__recuerdame--label{
+    flex: 1;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+}
+
+.opciones__restablecer--enlace {
+    text-decoration: underline;
+    color: #8B0000;
+    margin-right: 10px;
+}
+
+.terminos {
+    margin-top: 3rem;
+}
+
+.terminos__enlace {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.registrarse {
+    margin-top: 1rem;
+}
+
+.registrarse__enlace {
+    text-decoration: underline;
+    color: #8B0000;
+}
+
+
+
