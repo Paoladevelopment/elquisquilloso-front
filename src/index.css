@@ -1,9 +1,12 @@
 :root {
   --main-background: #bbbbbb;
-  --secundary-background: #1e2a38;
+  --secundary-background: #1e2a38; 
+  --brand-color: #8B0000;
   --main-text-color: #000;
   --secundary-text-color: #fff;
   --gray-color: #333333;
+  --btn-main-color: #400000;
+  --btn-secundary-color: #0f1111;
 }
 
 * {
@@ -14,5 +17,4 @@
 
 #root {
   font-family: 'Noto Sans';
-  background-color: var(--main-background);
 }
