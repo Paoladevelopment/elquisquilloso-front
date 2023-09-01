@@ -1,12 +1,20 @@
 import { useState } from "react";
 import { Boton } from "../Boton/Boton";
 import "./Header.css";
+import { useLocation } from "react-router-dom";
 export const Header = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const location = useLocation();
+  const[showMenu, setShowMenu] = useState(false);
+  const isLoginPage = location.pathname === "/inicioSesion";
+  const isRegisterPage = location.pathname === "/registro";
+  if (isLoginPage || isRegisterPage) return null;
   return (
     <header className="main-header">
       <div className="main-header__menu-container">
-        <button className={`main-header__opciones ${showMenu? "isActive": ""}`} onClick={() => setShowMenu(!showMenu)}>
+        <button
+          className={`main-header__opciones ${showMenu ? "isActive" : ""}`}
+          onClick={() => setShowMenu(!showMenu)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -21,7 +29,7 @@ export const Header = () => {
             />
           </svg>
         </button>
-        <nav className={`main-header__menu ${showMenu? "isActive": ""}`}>
+        <nav className={`main-header__menu ${showMenu ? "isActive" : ""}`}>
           <ul>
             <li>
               <a href="#">Cultura y Entretenimiento</a>
@@ -47,7 +55,6 @@ export const Header = () => {
             <li>
               <a href="#">Política</a>
             </li>
-            
           </ul>
         </nav>
       </div>
