@@ -1,0 +1,120 @@
+/* Estilo del contenedor principal */
+.contenedorCrearArticulo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Estilo compartido para los elementos de artículo */
+.contenidoArticulo,
+.titulosArticulo,
+.imagenArticulo,
+.palabrasClave,
+.acciones {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el área de redacción de contenido */
+.contenidoArticulo {
+  grid-column: 1 / span 1; /* Ocupa una columna */
+  grid-row: 2 / span 1;    /* Ocupa una fila */
+}
+
+/* Estilo para títulos */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para textarea */
+textarea {
+  resize: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Estilo para botones */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.acciones__guardarBorrador,
+.acciones__vistaPrevia {
+  display: inline-block;
+  margin-right: 1rem; /* Añade un margen entre los botones si lo deseas */
+}
+
+.acciones__publicar--button {
+  display: flex;
+  justify-content: end;
+}
+
+/* Estilo para etiquetas */
+label {
+  font-size: 16px;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Estilo para el elemento de salida */
+.puntos-output {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Estilo para los enlaces "Editar" */
+.acciones a {
+  text-decoration: underline;
+  margin-left: 10px;
+  color: #007bff;
+}
+
+/* Estilo para el rango de puntos */
+#puntos {
+  width: 100%;
+}
+
+/* Estilo para el input de texto de imagen */
+.imagenArticulo__portada--input,
+.imagenArticulo__evidencias--input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Estilo para la clase Cantidad */
+.contenidoArticulo__Cantidad {
+  text-align: left;
+  margin-top: -10px;
+  color: #888;
+}
+
+/* Cambio en la disposición de elementos */
+.titulosArticulo {
+  grid-column: 1 / span 2; /* Ocupa dos columnas */
+  grid-row: 1 / span 1;    /* Ocupa una fila */
+}
+  

@@ -2,7 +2,7 @@ import React from 'react'
 import './Registro.css'
 export const Registro = () => {
     return (
-        <div className="contenedor">
+        <div className="contenedorRegistro">
             <div class="registro">
                 <h2 className='registro__titulo'>Crear Cuenta</h2>
                 <form>
