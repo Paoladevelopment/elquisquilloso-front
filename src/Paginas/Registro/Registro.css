@@ -1,18 +1,7 @@
-/* Estilos para el formulario de registro */
-.contenedorRegistro {
-    background-image: url('../../assets/header-img.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .registro {
     background-color: #ffffff;
     padding: 1.25rem;
-    border-radius: 1rem;
+    border-radius: 0.25rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
@@ -20,8 +9,6 @@
 .registro__titulo {
     text-align: center;
     font-size: 1.5rem;
-    color: #333;
-    position: relative;
 }
 
 .registro__datos {
@@ -32,13 +19,14 @@
 .registro__datos--label {
     display: block;
     margin-bottom: 5px;
+    font-weight: 500;
 }
 
 .registro__datos--input {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 1rem;
+    border-radius: 0.25rem;
 }
 
 .registro__boton {
@@ -58,20 +46,75 @@
     background-color: #600000;
 }
 
-.terminos {
-    margin-top: 3rem;
+.iniciarSesion__enlace , .terminos__enlace{
+    text-decoration: underline;
+    color: #8B0000;
 }
 
 .terminos__enlace {
     text-decoration: none;
-    margin-right: 10px;
 }
 
 .iniciarSesion {
     margin-top: 1rem;
+    text-align: center;
 }
 
-.iniciarSesion__enlace {
-    text-decoration: underline;
-    color: #8B0000;
+
+
+@media screen and (min-width: 640px){
+    .contenedorRegistro {
+        background-image: url('../../assets/header-img.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 1rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .registro {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 920px){
+
+    .contenedorRegistro {
+        height: 100vh;
+    }
+    .registro {
+        width: 70%;
+    }
+
+    .registro__formulario {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 4%;
+    }
+
+    .registro__datos:nth-child(1) {
+        grid-column: 1/4;
+    }
+
+    .registro__datos:nth-child(2) {
+        grid-column: 4/-1;
+    }
+
+    .registro__datos:nth-child(3) {
+        grid-column: 1/4;
+    }
+
+    .registro__datos:nth-child(4) {
+        grid-column: 4/-1;
+    }
+
+    .terminos {
+        grid-column: 1/-1;
+    }
+
+    .registro__boton {
+        grid-column: 1/-1;
+    }
 }

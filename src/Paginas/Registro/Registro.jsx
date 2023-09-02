@@ -3,11 +3,12 @@ import "./Registro.css";
 export const Registro = () => {
   return (
     <div className="contenedorRegistro">
-      <div class="registro">
+      <div className="registro">
         <h2 className="registro__titulo">Crear cuenta</h2>
-        <form>
-          <div class="registro__datos">
-            <label for="nombre" className="registro__datos--label">
+        <hr />
+        <form className="registro__formulario">
+          <div className="registro__datos">
+            <label htmlFor="nombre" className="registro__datos--label">
               Nombre
             </label>
             <input
@@ -18,8 +19,8 @@ export const Registro = () => {
               required
             />
           </div>
-          <div class="registro__datos">
-            <label for="email" className="registro__datos--label">
+          <div className="registro__datos">
+            <label htmlFor="email" className="registro__datos--label">
               Correo Electrónico
             </label>
             <input
@@ -30,8 +31,8 @@ export const Registro = () => {
               required
             />
           </div>
-          <div class="registro__datos">
-            <label for="password" className="registro__datos--label">
+          <div className="registro__datos">
+            <label htmlFor="password" className="registro__datos--label">
               Contraseña
             </label>
             <input
@@ -42,43 +43,43 @@ export const Registro = () => {
               required
             />
           </div>
-          <div class="registro__datos">
-            <label for="password" className="registro__datos--label">
+          <div className="registro__datos">
+            <label
+              htmlFor="confirm-password"
+              className="registro__datos--label"
+            >
               Confirmar Contraseña
             </label>
             <input
               type="password"
               className="registro__datos--input"
-              id="password"
+              id="confirm-password"
               name="password"
               required
             />
           </div>
-          <div class="terminos">
+          <div className="terminos">
             <p>
               Al iniciar sesión, aceptas nuestros{" "}
               <a href="#" className="terminos__enlace">
-                Términos y Condiciones
-              </a>{" "}
+                Términos y condiciones
+              </a>
               y{" "}
               <a href="#" className="terminos__enlace">
-                Política de Uso
+                Política de uso.
               </a>
-              .
             </p>
           </div>
           <button type="submit" className="registro__boton">
             Registrarse
           </button>
         </form>
-        <div class="iniciarSesion">
-          <p>
-            Si ya tienes una cuenta,{" "}
-            <a href="#" className="iniciarSesion__enlace">
-              Inicia sesión
-            </a>
-          </p>
-        </div>
+        <p className="iniciarSesion">
+          Si ya tienes una cuenta,{" "}
+          <a href="#" className="iniciarSesion__enlace">
+            Inicia sesión
+          </a>
+        </p>
       </div>
     </div>
   );

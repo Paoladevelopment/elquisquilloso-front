@@ -18,3 +18,11 @@
 #root {
   font-family: 'Noto Sans';
 }
+
+hr {
+  height: 4px;
+  background-color: var(--brand-color);
+  margin: 0;
+  opacity: .75;
+  border-top: 0;
+}
