@@ -1,0 +1,40 @@
+.barra-busqueda {
+  position: relative;
+  margin: 0 1rem;
+}
+
+.barra-busqueda input {
+  height: 2rem;
+  width: 100%;
+  padding: 0 1.25rem;
+  border-radius: 0.625rem;
+  border: 1px solid #ccc;
+}
+
+.barra-busqueda__btn {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--brand-color);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.barra-busqueda__btn svg {
+  color: #fff;
+}
+
+.barra-busqueda__btn:hover {
+  color: var(--brand-color);
+  border: 1px solid var(--brand-color);
+  background-color: #fff;
+}
+
+.barra-busqueda__btn:hover svg {
+  color: var(--brand-color);
+}

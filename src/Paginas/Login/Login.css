@@ -1,129 +1,91 @@
-
-/*----------------------*/
-/* Estilos para el formulario de registro */
 .contenedorLogin {
-    background-image: url('../../assets/header-img.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .login {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 25rem;
-    height: auto;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 1.25rem;
+  text-align: center;
 }
 
 .login__titulo {
-    margin-bottom: 20px;
-    font-size: 1.08rem;
-    color: #333;
-    position: relative;
-}
-
-.login__titulo::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 0.3rem;
-    background-color: #8B0000;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
+  font-size: 1.5rem;
 }
 
 .login__datos {
-    font-size: 1.08rem;
-    margin-bottom: 10px;
-    text-align: left;
-    margin-top: 1rem;
+  font-size: 1.125rem;
+  text-align: left;
+  margin-top: 1rem;
 }
 
 .login__datos--label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: 500;
 }
 
 .login__datos--input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
 }
 
 .login__boton {
-    margin-top: 1rem;
-    background-color: #8B0000;
-    color: #fff;
-    border: none;
-    padding: 10px 0;
-    width: 100%;
-    border-radius: 1rem;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+  margin: 1rem 0;
+  background-color: #8b0000;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
 .login__boton:hover {
-    background-color: #600000;
+  background-color: #600000;
 }
 
 .opciones {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 1rem;
 }
 
-.opciones .rememberopciones__recuerdame,
-.opciones .opiones__restablecer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    font-size: 0.8rem;
+.opciones__recuerdame {
+  display: flex;
+  gap: 5%;
 }
 
-.opiones__restablecer {
-    margin-left: 0.5rem;
-}
-
-.opciones__recuerdame--label{
-    flex: 1;
-    margin-bottom: 0;
-    margin-left: 0.5rem;
-}
-
-.opciones__restablecer--enlace {
-    text-decoration: underline;
-    color: #8B0000;
-    margin-right: 10px;
-}
-
-.terminos {
-    margin-top: 3rem;
-}
-
-.terminos__enlace {
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-.registrarse {
-    margin-top: 1rem;
-}
-
+.opciones__restablecer--enlace,
 .registrarse__enlace {
-    text-decoration: underline;
-    color: #8B0000;
+  text-decoration: underline;
+  color: #8b0000;
 }
 
+@media screen and (min-width: 640px) {
+  .contenedorLogin {
+    background-image: url('../../assets/header-img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 
+  .login {
+    border-radius: 0.25rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 70%;
+  }
+}
 
+@media screen and (min-width: 1280px) {
+  .login {
+    width: 40%;
+  }
+}

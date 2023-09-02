@@ -1,7 +1,7 @@
 :root {
   --main-background: #bbbbbb;
-  --secundary-background: #1e2a38; 
-  --brand-color: #8B0000;
+  --secundary-background: #1e2a38;
+  --brand-color: #8b0000;
   --main-text-color: #000;
   --secundary-text-color: #fff;
   --gray-color: #333333;
@@ -23,6 +23,14 @@ hr {
   height: 4px;
   background-color: var(--brand-color);
   margin: 0;
-  opacity: .75;
+  opacity: 0.75;
   border-top: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
