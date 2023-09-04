@@ -80,7 +80,12 @@ export const Header = () => {
           </ul>
         </nav>
       </div>
-      <h1 className='main-header__titulo'>El Quisquilloso</h1>
+      <img
+        src='../../../src/assets/QUISQUILLOSO.png'
+        alt=''
+        className='main-header__icon'
+        onClick={() => history('/')}
+      />
       <div className='main-header__sesion--icon'>
         <svg
           xmlns='http://www.w3.org/2000/svg'

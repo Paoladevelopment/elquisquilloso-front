@@ -9,9 +9,9 @@
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
-.main-header__titulo {
-  font-size: 2rem;
-  color: var(--main-text-color);
+.main-header__icon {
+  width: 50%;
+  cursor: pointer;
 }
 
 .main-header__sesion {
@@ -29,6 +29,10 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.main-header__opciones svg {
+  color: #000;
 }
 .main-header__opciones.isActive {
   color: var(--brand-color);
@@ -83,11 +87,19 @@
     box-shadow: 4px 4px 15px -3px rgba(0, 0, 0, 0.75);
     height: auto;
   }
+
+  .main-header__icon {
+    width: 40%;
+  }
 }
 
 @media screen and (min-width: 920px) {
   .main-header {
     padding-right: 2rem;
+  }
+
+  .main-header__icon {
+    width: 30%;
   }
 
   .main-header__menu {
@@ -100,5 +112,11 @@
   .main-header__sesion {
     display: flex;
     gap: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .main-header__icon {
+    width: 20%;
   }
 }

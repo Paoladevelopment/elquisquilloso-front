@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 export const Login = () => {
+  const history = useNavigate();
   return (
     <div className='contenedorLogin'>
       <div className='login'>
@@ -53,7 +55,10 @@ export const Login = () => {
 
         <p className='registrarse'>
           ¿No tienes cuenta?{' '}
-          <a href='#' className='registrarse__enlace'>
+          <a
+            onClick={() => history('/registro')}
+            className='registrarse__enlace'
+          >
             Regístrate
           </a>
         </p>

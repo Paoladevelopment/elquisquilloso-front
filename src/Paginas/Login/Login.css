@@ -61,6 +61,8 @@
 
 .opciones__recuerdame {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 5%;
 }
 
@@ -68,6 +70,10 @@
 .registrarse__enlace {
   text-decoration: underline;
   color: #8b0000;
+}
+
+.registrarse__enlace {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 640px) {

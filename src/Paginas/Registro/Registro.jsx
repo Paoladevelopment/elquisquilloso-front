@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import './Registro.css';
 export const Registro = () => {
+  const history = useNavigate();
   return (
     <div className='contenedorRegistro'>
       <div className='registro'>
@@ -59,7 +61,7 @@ export const Registro = () => {
           </div>
           <div className='terminos'>
             <p>
-              Al iniciar sesión, aceptas nuestros{' '}
+              Al iniciar sesión, aceptas nuestros{'    '}
               <a href='#' className='terminos__enlace'>
                 Términos y condiciones
               </a>
@@ -75,7 +77,10 @@ export const Registro = () => {
         </form>
         <p className='iniciarSesion'>
           Si ya tienes una cuenta,{' '}
-          <a href='#' className='iniciarSesion__enlace'>
+          <a
+            onClick={() => history('/inicioSesion')}
+            className='iniciarSesion__enlace'
+          >
             Inicia sesión
           </a>
         </p>

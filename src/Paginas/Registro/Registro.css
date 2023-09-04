@@ -50,14 +50,25 @@
   background-color: #600000;
 }
 
+.terminos {
+  margin-top: 1rem;
+}
 .iniciarSesion__enlace,
 .terminos__enlace {
   text-decoration: underline;
   color: #8b0000;
 }
 
-.terminos__enlace {
-  text-decoration: none;
+.iniciarSesion__enlace {
+  cursor: pointer;
+}
+
+.terminos__enlace:first-child {
+  margin-right: 0.5rem;
+}
+
+.terminos__enlace:last-child {
+  margin-left: 0.5rem;
 }
 
 .iniciarSesion {
@@ -89,6 +100,10 @@
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 1fr);
     column-gap: 4%;
+  }
+
+  .terminos {
+    text-align: center;
   }
 
   .registro__datos:nth-child(1) {

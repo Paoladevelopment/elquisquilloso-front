@@ -1,0 +1,55 @@
+.nuevo-contenido {
+  text-align: center;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.contenedor-opciones {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.contenedor-opciones button {
+  display: flex;
+  gap: 4%;
+  padding: 0.625rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  width: 50%;
+  border-radius: 0.5rem;
+}
+
+.contenedor-opciones button:nth-child(1) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.contenedor-opciones button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.contenedor-opciones button:nth-child(1):hover,
+.contenedor-opciones button:last-child:hover {
+  background-color: #8d0000;
+  color: #fff;
+}
+
+.nuevo-contenido textarea {
+  width: 70%;
+  height: 400px;
+  padding: 2rem 1rem 1rem;
+  resize: none;
+  border: 1px solid transparent;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.icon-cancel {
+  position: absolute;
+  right: 16%;
+  cursor: pointer;
+}
