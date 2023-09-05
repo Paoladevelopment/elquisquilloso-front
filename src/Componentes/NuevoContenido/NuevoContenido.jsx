@@ -6,7 +6,13 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import './NuevoContenido.css';
 import { useState } from 'react';
 
-export const NuevoContenido = ({ establecerNuevoBloque }) => {
+export const NuevoContenido = ({
+  establecerNuevoBloque,
+  watch,
+  register,
+  unregister,
+  idBloque,
+}) => {
   const [infoBloque, setInfoBloque] = useState({
     seleccionado: false,
     seleccion: null,
@@ -17,6 +23,7 @@ export const NuevoContenido = ({ establecerNuevoBloque }) => {
       ...prevInfo,
       seleccion: null,
     }));
+    unregister(idBloque);
   };
   const handleClick = (e) => {
     if (e.target.textContent === 'Texto') {
@@ -71,7 +78,12 @@ export const NuevoContenido = ({ establecerNuevoBloque }) => {
         <div className='icon-cancel' onClick={devolverOpciones}>
           <FontAwesomeIcon icon={faXmark} />
         </div>
-        <textarea placeholder='Escribe tus parrafos acá...'></textarea>
+        <textarea
+          placeholder='Escribe tus parrafos acá...'
+          {...register(idBloque, {
+            required: true,
+          })}
+        ></textarea>
       </div>
     );
   }
@@ -79,4 +91,8 @@ export const NuevoContenido = ({ establecerNuevoBloque }) => {
 
 NuevoContenido.propTypes = {
   establecerNuevoBloque: PropTypes.func,
+  watch: PropTypes.func,
+  register: PropTypes.func,
+  unregister: PropTypes.func,
+  idBloque: PropTypes.string,
 };

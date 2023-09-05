@@ -8,6 +8,7 @@ export default function useFilePreview(file) {
       const newUrl = URL.createObjectURL(file[0]);
 
       if (newUrl !== imgSrc) {
+        URL.revokeObjectURL(imgSrc);
         setImgSrc(newUrl);
       }
     }
