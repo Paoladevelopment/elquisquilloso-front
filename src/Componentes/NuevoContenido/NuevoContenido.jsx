@@ -1,30 +1,37 @@
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage } from '@fortawesome/free-solid-svg-icons';
-import { faTextWidth } from '@fortawesome/free-solid-svg-icons';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faImage,
+  faTextWidth,
+  faXmark,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import './NuevoContenido.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import useFilePreview from '../../Hooks/useFilePreview';
 
 export const NuevoContenido = ({
-  establecerNuevoBloque,
+  addInfoArticulo,
+  eliminarInfoArticulo,
   watch,
   register,
   unregister,
   idBloque,
 }) => {
   const [infoBloque, setInfoBloque] = useState({
-    seleccionado: false,
     seleccion: null,
   });
-
+  const file = typeof watch(idBloque) !== 'string' ? watch(idBloque) : null;
+  const [imgPreview, setImgPreview] = useFilePreview(file);
   const devolverOpciones = () => {
-    setInfoBloque((prevInfo) => ({
-      ...prevInfo,
+    setInfoBloque({
       seleccion: null,
-    }));
+    });
+    setImgPreview(null);
     unregister(idBloque);
+    eliminarInfoArticulo(idBloque);
   };
+
   const handleClick = (e) => {
     if (e.target.textContent === 'Texto') {
       setInfoBloque((prevInfo) => ({
@@ -36,18 +43,17 @@ export const NuevoContenido = ({
         ...prevInfo,
         seleccion: 'img',
       }));
-      document.querySelector('.input-Aimg').click();
-    }
-
-    if (!infoBloque.seleccionado) {
-      setInfoBloque((prevInfo) => ({
-        ...prevInfo,
-        seleccionado: true,
-        seleccion: e.target.textContent === 'Texto' ? 'txt' : 'img',
-      }));
-      establecerNuevoBloque();
     }
   };
+
+  useEffect(() => {
+    if (imgPreview !== null) {
+      addInfoArticulo({
+        [idBloque]: imgPreview,
+      });
+    }
+  }, [imgPreview]);
+
   if (infoBloque.seleccion == null) {
     return (
       <div className='nuevo-contenido'>
@@ -57,13 +63,6 @@ export const NuevoContenido = ({
             Imagén
             <FontAwesomeIcon icon={faImage} size='1x' />
           </button>
-          <span className='sr-only'>Selecciona una imagen de portada</span>
-          <input
-            type='file'
-            id='portada-img'
-            accept='image/png, image/jpeg'
-            className='input-Aimg hidden'
-          />
           <button type='button' onClick={handleClick}>
             Texto
             <FontAwesomeIcon icon={faTextWidth} size='1x' />
@@ -87,10 +86,57 @@ export const NuevoContenido = ({
       </div>
     );
   }
+
+  if (infoBloque.seleccion === 'img') {
+    return (
+      <>
+        {imgPreview ? (
+          <div
+            className='nuevo-contenido contenedor-img'
+            style={{
+              backgroundImage: `url(${imgPreview})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center center',
+            }}
+          >
+            <div className='icon-cancel--img' onClick={devolverOpciones}>
+              <FontAwesomeIcon icon={faXmark} />
+            </div>
+          </div>
+        ) : (
+          <div className='nuevo-contenido contenedor-img'>
+            <div className='icon-cancel--img' onClick={devolverOpciones}>
+              <FontAwesomeIcon icon={faXmark} />
+            </div>
+            <span>Añadir una imagén</span>
+            <FontAwesomeIcon
+              icon={faPlus}
+              className='nueva-imagen'
+              onClick={() => {
+                document.querySelector('.input-Aimg').click();
+              }}
+            />
+            <span className='sr-only'>Selecciona una imagen</span>
+            <input
+              type='file'
+              id='portada-img'
+              accept='image/png, image/jpeg'
+              className='input-Aimg hidden'
+              {...register(idBloque, {
+                required: true,
+              })}
+            />
+          </div>
+        )}
+      </>
+    );
+  }
 };
 
 NuevoContenido.propTypes = {
-  establecerNuevoBloque: PropTypes.func,
+  addInfoArticulo: PropTypes.func,
+  eliminarInfoArticulo: PropTypes.func,
   watch: PropTypes.func,
   register: PropTypes.func,
   unregister: PropTypes.func,

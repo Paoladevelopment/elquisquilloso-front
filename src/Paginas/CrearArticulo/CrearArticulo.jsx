@@ -1,6 +1,6 @@
 import './CrearArticulo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage } from '@fortawesome/free-solid-svg-icons';
+import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { NuevoContenido } from '../../Componentes/NuevoContenido/NuevoContenido';
 import { useForm } from 'react-hook-form';
@@ -16,21 +16,32 @@ export const CrearArticulo = () => {
   const [bloques, setBloques] = useState(['bloque-1']);
   const imgPortadaFile = watch('foto-portada');
   const imgPortadaUrl = useFilePreview(imgPortadaFile)[0];
-  console.log(imgPortadaUrl);
+  const titulo = watch('titulo');
+  const subtitulo = watch('subtitulo');
+  const [infoArticulo, setInfoArticulo] = useState({});
   const handleUploadPortada = () => {
     document.querySelector('.input-Pimg').click();
   };
+  const addInfoArticulo = (info) => {
+    setInfoArticulo((prevArticulo) => ({ ...prevArticulo, ...info }));
+  };
 
+  const eliminarInfoArticulo = (id) => {
+    setInfoArticulo((prevArticulo) => {
+      delete { ...prevArticulo }[id];
+      return { ...prevArticulo };
+    });
+  };
   const handleArticleForm = (data) => {
     console.log(data);
   };
   return (
     <div className='crear-articulo'>
-      <h1 className='crear-articulo__titulo'>Crear artículo</h1>
       <form
         className='crear-articulo__form'
         onSubmit={handleSubmit(handleArticleForm)}
       >
+        <h1 className='crear-articulo__titulo'>Crear artículo</h1>
         <label htmlFor='titulo'>Título del artículo*</label>
         <input
           type='text'
@@ -87,12 +98,8 @@ export const CrearArticulo = () => {
               <NuevoContenido
                 key={bloque}
                 idBloque={bloque}
-                establecerNuevoBloque={() => {
-                  setBloques((prevBloques) => [
-                    ...prevBloques,
-                    `bloque-${prevBloques.length + 1}`,
-                  ]);
-                }}
+                addInfoArticulo={addInfoArticulo}
+                eliminarInfoArticulo={eliminarInfoArticulo}
                 register={register}
                 watch={watch}
                 unregister={unregister}
@@ -100,15 +107,45 @@ export const CrearArticulo = () => {
             );
           })}
         </div>
+        <div
+          className='nuevo-contenido__opcion'
+          onClick={() => {
+            setBloques((prevBloques) => [
+              ...prevBloques,
+              `bloque-${prevBloques.length + 1}`,
+            ]);
+          }}
+        >
+          <FontAwesomeIcon icon={faPlus} />
+        </div>
         <button className='crear-articulo__submit' type='submit'>
           Crear
         </button>
       </form>
-      <div className='crear-articulo__prev'></div>
-      <img
-        src='blob:http://localhost:5173/e371939a-8ed2-4ea7-b923-5c8680e5fc26'
-        alt=''
-      />
+      <div className='crear-articulo__prev'>
+        <h1>{titulo}</h1>
+        <h2>{subtitulo}</h2>
+        <div
+          style={{
+            height: '500px',
+            backgroundImage: `url(${imgPortadaUrl})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center',
+          }}
+        ></div>
+        {bloques.map((bloque) => {
+          return typeof watch(bloque) === 'object' ? (
+            <div key={bloque} className='img-prev'>
+              <img src={infoArticulo[bloque]} alt='' />
+            </div>
+          ) : (
+            <p key={bloque} className='parrafo-prev'>
+              {watch(bloque)}
+            </p>
+          );
+        })}
+      </div>
     </div>
   );
 };

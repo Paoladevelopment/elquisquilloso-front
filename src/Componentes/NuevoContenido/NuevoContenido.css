@@ -1,7 +1,7 @@
 .nuevo-contenido {
   text-align: center;
   font-size: 1.125rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
@@ -38,18 +38,40 @@
   color: #fff;
 }
 
-.nuevo-contenido textarea {
+.nuevo-contenido textarea,
+.contenedor-img {
   width: 70%;
   height: 400px;
-  padding: 2rem 1rem 1rem;
-  resize: none;
   border: 1px solid transparent;
+  margin: 0 auto 1rem;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
     rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
 
+.nuevo-contenido textarea {
+  resize: none;
+  padding: 2rem 1rem 1rem;
+}
+.contenedor-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .icon-cancel {
   position: absolute;
   right: 16%;
+  cursor: pointer;
+}
+
+.icon-cancel--img {
+  position: absolute;
+  right: 1%;
+  top: 0;
+  cursor: pointer;
+}
+
+.nueva-imagen {
+  font-size: 2rem;
+  margin-top: 1rem;
   cursor: pointer;
 }
