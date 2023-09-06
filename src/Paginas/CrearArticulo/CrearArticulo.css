@@ -147,11 +147,14 @@
   .crear-articulo__prev {
     display: block;
     width: 50%;
+    margin-left: 1rem;
+    border: 1px solid #8d0000;
   }
 
   .img-prev {
     width: 90%;
     height: 500px;
+    margin: 0 auto;
   }
 
   .img-prev img {
