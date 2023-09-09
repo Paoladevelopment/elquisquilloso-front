@@ -3,9 +3,12 @@ import { Boton } from '../Boton/Boton';
 import './Header.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BarraBusqueda } from '../BarraBusqueda/BarraBusqueda';
+import { useSelector } from 'react-redux';
+import { getAuth } from '../../redux/usuario/selectors';
 export const Header = () => {
   const location = useLocation();
   const history = useNavigate();
+  const isAuth = useSelector(getAuth);
   const [showMenu, setShowMenu] = useState(false);
   const menu = useRef();
   useEffect(() => {
@@ -102,10 +105,17 @@ export const Header = () => {
           />
         </svg>
       </div>
-      <div className='main-header__sesion'>
-        <Boton text='Iniciar Sesión' onClick={() => history('/inicioSesion')} />
-        <Boton text='Registro' onClick={() => history('/registro')} />
-      </div>
+      {!isAuth ? (
+        <div className='main-header__sesion'>
+          <Boton
+            text='Iniciar Sesión'
+            onClick={() => history('/inicioSesion')}
+          />
+          <Boton text='Registro' onClick={() => history('/registro')} />
+        </div>
+      ) : (
+        <div className='main-header_sesion'></div>
+      )}
     </header>
   );
 };

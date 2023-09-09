@@ -41,3 +41,7 @@ input {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
 }
+
+.errors {
+  color: #8b0000;
+}
